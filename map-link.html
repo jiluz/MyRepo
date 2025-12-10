@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף מפה דינמי ורספונסיבי</title>
+    <style>
+        /* 1. הגדרות BODY פשוטות */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: transparent;
+        }
+        
+        /* 2. המיכל הראשי (.pdf-container) - משתמש ב-padding-bottom לשמירת יחס גובה/רוחב בעת כיווץ */
+        .pdf-container {
+            width: 100%; /* המיכל תופס 100% מהרוחב הזמין בתוך ה-iFrame */
+            position: relative; 
+            overflow: hidden; 
+            
+            /* יחס גובה/רוחב קבוע: (1278 / 2478 = 51.57%) */
+            padding-bottom: 51.57%; 
+            height: 0; 
+            
+            /* קישור הרקע מ-GitHub Raw */
+            background-image: url('https://raw.githubusercontent.com/jiluz/MyRepo/main/%D7%99%D7%A2%D7%9C%D7%99%D7%9D%20%D7%99%D7%A7%D7%A8%D7%95%D7%AA%20%D7%9C%D7%9C%D7%90%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8.png'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
+        /* 3. מיקום וגודל הקישור הדינמי - באחוזים יחסיים (יחסית לגודל הרקע) */
+        #dynamicLink {
+            position: absolute; 
+            
+            /* מיקום אנכי (שומר על המיקום היחסי של 675px מלמעלה) */
+            top: 52.82%; 
+            
+            /* מרכוז אופקי */
+            left: 50%; 
+            transform: translateX(-50%); 
+            
+            /* גודל חדש (1080px רוחב, 180px גובה) */
+            width: 43.58%; 
+            height: 14.08%; 
+            display: block; 
+        }
+        
+        /* 4. עיצוב תמונת הכפתור */
+        #linkImage {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pdf-container">
+        <a href="#" id="dynamicLink" target="_blank" title="לחץ למידע מעודכן">
+            <img id="linkImage" src="https://raw.githubusercontent.com/jiluz/MyRepo/main/%D7%AA%D7%9E%D7%95%D7%A0%D7%AA%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%9C%D7%9E%D7%A4%D7%94.png" alt="קישור לעדכון">
+        </a>
+    </div>
+
+    <script>
+        // *** קוד JavaScript לניהול הקישור הדינמי בלבד ***
+        const editableUrl = 'https://www.google.com/maps/d/edit?mid=1ZV3wyw_U2qiEHsuJ9LmLKnY8BGG57NU&usp=drive_link';
+        document.getElementById('dynamicLink').href = editableUrl;
+    </script>
+</body>
+</html>
