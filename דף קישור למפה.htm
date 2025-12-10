@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מסמך יעלים יקרות - קישור דינמי</title>
+    <style>
+      /* איפוס בסיסי לגוף הדף המוטמע */
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+      }
+
+      /* המיכל הראשי בגודל המדויק של תמונת הרקע */
+      .pdf-container {
+        width: 2478px; /* רוחב התמונה שסופקה */
+        height: 1278px; /* גובה התמונה שסופקה */
+        position: relative;
+        overflow: hidden;
+
+        /* קישור הרקע מ-GitHub Raw */
+        background-image: url("https://raw.githubusercontent.com/jiluz/MyRepo/main/%D7%99%D7%A2%D7%9C%D7%99%D7%9D%20%D7%99%D7%A7%D7%A8%D7%95%D7%AA%20%D7%9C%D7%9C%D7%90%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /*
+         * מיקום וגודל הקישור הדינמי - הותאם לפי הדרישה:
+         * גובה: 725 - 50 = 675px
+         * רוחב: 300 * 2.5 = 750px
+         * גובה: 50 * 2.5 = 125px
+         */
+      #dynamicLink {
+        position: absolute;
+        top: 600px; /* הועלה 50px למעלה */
+        left: 50%;
+        transform: translateX(-50%); /* מרכוז אופקי */
+
+        width: 1080px; /* הוגדל פי 2.5 */
+        height: 180px; /* הוגדל פי 2.5 */
+        display: block;
+      }
+
+      /* עיצוב תמונת הכפתור עצמה (שתמלא את אזור #dynamicLink) */
+      #linkImage {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display12: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pdf-container">
+      <a href="#" id="dynamicLink" target="_blank" title="לחץ למידע מעודכן">
+        <img
+          id="linkImage"
+          src="https://raw.githubusercontent.com/jiluz/MyRepo/main/%D7%AA%D7%9E%D7%95%D7%A0%D7%AA%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%9C%D7%9E%D7%A4%D7%94.png"
+          alt="קישור לעדכון"
+        />
+      </a>
+    </div>
+
+    <script>
+      // *** זהו המשתנה שאתה משנה בעתיד כשצריך לעדכן את הכתובת ***
+      const editableUrl =
+        "https://www.google.com/maps/d/edit?mid=1ZV3wyw_U2qiEHsuJ9LmLKnY8BGG57NU&usp=drive_link";
+
+      // עדכון הקישור
+      document.getElementById("dynamicLink").href = editableUrl;
+    </script>
+  </body>
+</html>
